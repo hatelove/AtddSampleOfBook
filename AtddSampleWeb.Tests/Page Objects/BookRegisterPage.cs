@@ -10,7 +10,7 @@ namespace AtddSampleWebTests
             this.Url = $"{PageContext.Domain}/book/create";
         }
 
-        public void Create(BookModel book)
+        public void Create(BookViewMoel book)
         {
             I.Enter(book.ISBN).In("#isbn")
                 .Enter(book.Name).In("#name")

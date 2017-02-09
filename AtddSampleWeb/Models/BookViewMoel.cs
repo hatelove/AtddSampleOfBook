@@ -1,6 +1,6 @@
 ﻿namespace AtddSampleWeb.Models
 {
-    public class BookModel
+    public class BookViewMoel
     {
         public string ISBN { get; set; }
         public string Name { get; set; }

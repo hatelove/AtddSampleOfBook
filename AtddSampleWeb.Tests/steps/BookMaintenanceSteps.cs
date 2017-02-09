@@ -31,14 +31,14 @@ namespace AtddSampleWebTests.steps
         [Given(@"a book for registering")]
         public void GivenABookForRegistering(Table table)
         {
-            var book = table.CreateInstance<BookModel>();
-            ScenarioContext.Current.Set<BookModel>(book);
+            var book = table.CreateInstance<BookViewMoel>();
+            ScenarioContext.Current.Set<BookViewMoel>(book);
         }
 
         [When(@"Add book into library")]
         public void WhenAddBookIntoLibrary()
         {
-            var book = ScenarioContext.Current.Get<BookModel>();
+            var book = ScenarioContext.Current.Get<BookViewMoel>();
             this._bookRegisterPage.Create(book);
         }
 
