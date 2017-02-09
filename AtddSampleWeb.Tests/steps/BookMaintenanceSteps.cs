@@ -13,7 +13,7 @@ namespace AtddSampleWebTests.steps
 
         public BookMaintenanceSteps()
         {
-            SeleniumWebDriver.Bootstrap(SeleniumWebDriver.Browser.Chrome);
+            SeleniumWebDriver.Bootstrap(SeleniumWebDriver.Browser.Firefox);
         }
 
         [BeforeScenario()]
