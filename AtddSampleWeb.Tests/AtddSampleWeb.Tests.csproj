@@ -9,7 +9,7 @@
     <ProjectGuid>{EC35E162-1058-43F3-9A45-D04306990E68}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AtddSampleWeb.Tests</RootNamespace>
+    <RootNamespace>AtddSampleWebTests</RootNamespace>
     <AssemblyName>AtddSampleWeb.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -123,6 +123,7 @@
       <DependentUpon>BookMaintenance.feature</DependentUpon>
     </Compile>
     <Compile Include="Page Objects\BookRegisterPage.cs" />
+    <Compile Include="Page Objects\PageContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="steps\BookMaintenanceSteps.cs" />
   </ItemGroup>

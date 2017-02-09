@@ -7,16 +7,19 @@ namespace AtddSampleWeb.Tests
     {
         public BookRegisterPage(FluentTest test) : base(test)
         {
+            this.Url = $"{PageContext.Domain}/book/create";
         }
 
         public void Create(BookModel book)
         {
-            throw new System.NotImplementedException();
+            I.Enter(book.ISBN).In("#isbn")
+                .Enter(book.Name).In("#name")
+                .Click("input[type=\"submit\"]");
         }
 
-        public void ShouldDisplay(string addedSuccessFulMessage)
+        public void ShouldDisplay(string message)
         {
-            throw new System.NotImplementedException();
+            I.Assert.Text(message).In("#message");
         }
     }
 }
