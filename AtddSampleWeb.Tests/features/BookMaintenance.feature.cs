@@ -71,6 +71,8 @@ namespace AtddSampleWeb.Tests.Features
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add a book", ((string[])(null)));
 #line 6
 this.ScenarioSetup(scenarioInfo);
+#line 7
+ testRunner.Given("go to BookModel Registering Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "ISBN",
@@ -78,11 +80,11 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "9789869094481",
                         "玩出好創意"});
-#line 7
- testRunner.Given("a book for registering", ((string)(null)), table1, "Given ");
-#line 10
- testRunner.When("Add book into library", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 8
+ testRunner.And("a book for registering", ((string)(null)), table1, "And ");
 #line 11
+ testRunner.When("Add book into library", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 12
  testRunner.Then("added successfully message should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
