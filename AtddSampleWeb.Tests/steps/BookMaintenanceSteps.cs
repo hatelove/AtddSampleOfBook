@@ -22,7 +22,7 @@ namespace AtddSampleWebTests.steps
             this._bookRegisterPage = new BookRegisterPage(this);
         }
 
-        [Given(@"go to BookModel Registering Page")]
+        [Given(@"go to Book Registering Page")]
         public void GivenGoToBookRegisteringPage()
         {
             this._bookRegisterPage.Go();
