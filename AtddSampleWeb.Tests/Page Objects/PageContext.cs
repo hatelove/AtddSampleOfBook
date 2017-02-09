@@ -1,4 +1,4 @@
-﻿namespace AtddSampleWeb.Tests
+﻿namespace AtddSampleWebTests
 {
     public class PageContext
     {

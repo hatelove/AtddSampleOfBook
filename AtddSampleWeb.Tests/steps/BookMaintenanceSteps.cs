@@ -3,7 +3,7 @@ using FluentAutomation;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
-namespace AtddSampleWeb.Tests.steps
+namespace AtddSampleWebTests.steps
 {
     [Binding]
     [Scope(Feature = "BookMaintenance")]

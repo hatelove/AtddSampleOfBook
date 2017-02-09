@@ -1,7 +1,7 @@
 ﻿using AtddSampleWeb.Models;
 using FluentAutomation;
 
-namespace AtddSampleWeb.Tests
+namespace AtddSampleWebTests
 {
     public class BookRegisterPage : PageObject<BookRegisterPage>
     {
