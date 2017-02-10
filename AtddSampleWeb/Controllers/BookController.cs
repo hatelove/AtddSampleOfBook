@@ -6,6 +6,18 @@ namespace AtddSampleWeb.Controllers
 {
     public class BookController : Controller
     {
+        private IBookService bookServiceStub;
+
+        public BookController()
+        {
+            
+        }
+
+        public BookController(IBookService bookServiceStub)
+        {
+            this.bookServiceStub = bookServiceStub;
+        }
+
         // GET: Book
         [HttpGet]
         public ActionResult Create()

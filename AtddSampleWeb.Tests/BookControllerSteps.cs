@@ -19,6 +19,22 @@ namespace AtddSampleWebTests
         public void BeforeScenario()
         {
             this._bookController = new BookController();
+
+            using (var dbcontext = new NorthwindEntities())
+            {
+                dbcontext.Database.ExecuteSqlCommand("TRUNCATE TABLE [Books]");
+                dbcontext.SaveChangesAsync();
+            }
+        }
+
+        [AfterFeature()]
+        public static void AfterFeature()
+        {
+            using (var dbcontext = new NorthwindEntities())
+            {
+                dbcontext.Database.ExecuteSqlCommand("TRUNCATE TABLE [Books]");
+                dbcontext.SaveChangesAsync();
+            }
         }
 
         [Given(@"a book for registering")]
