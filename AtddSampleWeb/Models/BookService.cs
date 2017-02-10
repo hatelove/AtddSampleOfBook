@@ -1,4 +1,5 @@
-﻿using AtddSampleWeb.Models.DataModels;
+﻿using System.Collections.Generic;
+using AtddSampleWeb.Models.DataModels;
 
 namespace AtddSampleWeb.Models
 {
@@ -13,6 +14,11 @@ namespace AtddSampleWeb.Models
 
                 dbcontext.SaveChanges();
             }
+        }
+
+        public IEnumerable<Book> GetBooks(BookQueryViewModel bookQueryViewModel)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
