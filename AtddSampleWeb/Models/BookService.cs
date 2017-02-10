@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using AtddSampleWeb.Models.DataModels;
+﻿using AtddSampleWeb.Models.DataModels;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AtddSampleWeb.Models
 {
@@ -18,7 +19,14 @@ namespace AtddSampleWeb.Models
 
         public IEnumerable<Book> GetBooks(BookQueryViewModel bookQueryViewModel)
         {
-            throw new System.NotImplementedException();
+            using (var dbcontext = new BookEntities())
+            {
+                var books = dbcontext.Books
+                    .Where(x => x.Name == bookQueryViewModel.Name)
+                    .ToList();
+
+                return books;
+            }
         }
     }
 }

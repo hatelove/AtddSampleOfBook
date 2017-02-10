@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using AtddSampleWeb.Models.DataModels;
 
 namespace AtddSampleWeb.Controllers
 {
@@ -48,18 +47,9 @@ namespace AtddSampleWeb.Controllers
             return View(model);
         }
 
-
-
         private IEnumerable<BookViewMoel> GetBooks(BookQueryViewModel model)
         {
-            using (var dbcontext = new BookEntities())
-            {
-                var books = dbcontext.Books
-                    .Where(x => x.Name == model.Name)
-                    .Select(x => new BookViewMoel() { Name = x.Name, ISBN = x.ISBN }).ToList();
-
-                return books;
-            }
+            return this._bookService.GetBooks(model).Select(x => new BookViewMoel() {Name = x.Name, ISBN = x.ISBN});
         }
     }
 }
