@@ -1,5 +1,4 @@
 ﻿using AtddSampleWeb.Models;
-using AtddSampleWebTests.DataModels;
 using FluentAutomation;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -62,17 +61,6 @@ namespace AtddSampleWebTests.steps
         public void GivenQueryConditionBookNameIs(string name)
         {
             ScenarioContext.Current.Set<string>(name, "name");
-        }
-
-        [Given(@"Book table existed books")]
-        public void GivenBookTableExistedBooks(Table table)
-        {
-            var books = table.CreateSet<Books>();
-            using (var dbcontext = new NorthwindEntities())
-            {
-                dbcontext.Books.AddRange(books);
-                dbcontext.SaveChanges();
-            }
         }
 
         [When(@"Query")]

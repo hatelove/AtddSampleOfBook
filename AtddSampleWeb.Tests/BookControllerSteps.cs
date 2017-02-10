@@ -3,6 +3,7 @@ using AtddSampleWeb.Models;
 using AtddSampleWebTests.DataModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
+using System.Web.Mvc;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -44,6 +45,31 @@ namespace AtddSampleWebTests
 
                 table.CompareToInstance(firstBook);
             }
+        }
+
+        [Given(@"Query condition is")]
+        public void GivenQueryConditionIs(Table table)
+        {
+            var queryCondition = table.CreateInstance<BookQueryViewModel>();
+            ScenarioContext.Current.Set<BookQueryViewModel>(queryCondition);
+        }
+
+        [When(@"Query")]
+        public void WhenQuery()
+        {
+            var condition = ScenarioContext.Current.Get<BookQueryViewModel>();
+            var result = this._bookController.Query(condition);
+
+            ScenarioContext.Current.Set<ActionResult>(result);
+        }
+
+        [Then(@"ViewModel\.Books should be equals")]
+        public void ThenViewModel_BooksShouldBeEquals(Table table)
+        {
+            var viewResult = ScenarioContext.Current.Get<ActionResult>() as ViewResult;
+            var model = viewResult.ViewData.Model as BookQueryViewModel;
+
+            table.CompareToSet(model.Books);
         }
     }
 }

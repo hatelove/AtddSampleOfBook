@@ -100,6 +100,52 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Query books")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BookController")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("CleanBooks")]
+        public virtual void QueryBooks()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query books", new string[] {
+                        "CleanBooks"});
+#line 14
+ this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ISBN",
+                        "Name"});
+            table3.AddRow(new string[] {
+                        "9191919191919",
+                        "九一測試資料"});
+            table3.AddRow(new string[] {
+                        "9789869094481",
+                        "玩出好創意"});
+#line 15
+ testRunner.Given("Book table existed books", ((string)(null)), table3, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ISBN",
+                        "Name"});
+            table4.AddRow(new string[] {
+                        "",
+                        "玩出好創意"});
+#line 19
+ testRunner.And("Query condition is", ((string)(null)), table4, "And ");
+#line 22
+ testRunner.When("Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ISBN",
+                        "Name"});
+            table5.AddRow(new string[] {
+                        "9789869094481",
+                        "玩出好創意"});
+#line 23
+ testRunner.Then("ViewModel.Books should be equals", ((string)(null)), table5, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
