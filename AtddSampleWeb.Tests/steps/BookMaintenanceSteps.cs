@@ -1,4 +1,5 @@
 ﻿using AtddSampleWeb.Models;
+using AtddSampleWebTests.DataModels;
 using FluentAutomation;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -10,11 +11,13 @@ namespace AtddSampleWebTests.steps
     public class BookMaintenanceSteps : FluentTest
     {
         private BookRegisterPage _bookRegisterPage;
+        private BookQueryPage _bookQueryPage;
 
         [BeforeScenario()]
         public void BeforeScenario()
         {
             this._bookRegisterPage = new BookRegisterPage(this);
+            this._bookQueryPage = new BookQueryPage(this);
         }
 
         [Given(@"go to Book Registering Page")]
@@ -47,6 +50,44 @@ namespace AtddSampleWebTests.steps
         private string GetSuccessfulMessage()
         {
             return "新增成功";
+        }
+
+        [Given(@"go to Book Query Page")]
+        public void GivenGoToBookQueryPage()
+        {
+            this._bookQueryPage.Go();
+        }
+
+        [Given(@"Query Condition: book name is ""(.*)""")]
+        public void GivenQueryConditionBookNameIs(string name)
+        {
+            ScenarioContext.Current.Set<string>(name, "name");
+        }
+
+        [Given(@"Book table existed books")]
+        public void GivenBookTableExistedBooks(Table table)
+        {
+            var books = table.CreateSet<Books>();
+            using (var dbcontext = new NorthwindEntities())
+            {
+                dbcontext.Books.AddRange(books);
+                dbcontext.SaveChanges();
+            }
+        }
+
+        [When(@"Query")]
+        public void WhenQuery()
+        {
+            var name = ScenarioContext.Current.Get<string>("name");
+            var condition = new BookQueryCondition { Name = name };
+            this._bookQueryPage.Query(condition);
+        }
+
+        [Then(@"it should display book records")]
+        public void ThenItShouldDisplayBookRecords(Table table)
+        {
+            var books = table.CreateSet<BookQueryResult>();
+            this._bookQueryPage.ShouldDisplay(books);
         }
     }
 }

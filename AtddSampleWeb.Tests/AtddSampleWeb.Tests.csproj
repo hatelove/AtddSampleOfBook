@@ -161,7 +161,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BookMaintenance.feature</DependentUpon>
     </Compile>
+    <Compile Include="Page Objects\BookQueryPage.cs" />
     <Compile Include="Page Objects\BookRegisterPage.cs" />
+    <Compile Include="Page Objects\DTO\BookQueryCondition.cs" />
+    <Compile Include="Page Objects\DTO\BookQueryResult.cs" />
     <Compile Include="Page Objects\PageContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="steps\BookMaintenanceSteps.cs" />
