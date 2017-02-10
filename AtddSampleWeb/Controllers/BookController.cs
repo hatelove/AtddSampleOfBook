@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using AtddSampleWeb.Models;
+using AtddSampleWeb.Models.DataModels;
 using System.Web.Mvc;
-using AtddSampleWeb.Models;
 
 namespace AtddSampleWeb.Controllers
 {
@@ -19,6 +16,14 @@ namespace AtddSampleWeb.Controllers
         [HttpPost]
         public ActionResult Create(BookViewMoel model)
         {
+            using (var dbcontext = new BookEntities())
+            {
+                var book = new Book { ISBN = model.ISBN, Name = model.Name };
+                dbcontext.Books.Add(book);
+
+                dbcontext.SaveChanges();
+            }
+
             ViewBag.Message = "新增成功";
             return View(model);
         }
