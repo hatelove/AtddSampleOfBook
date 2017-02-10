@@ -8,7 +8,7 @@ namespace AtddSampleWeb.Controllers
         private IBookService _bookService;
 
         public BookController()
-        {
+        {            
         }
 
         public BookController(IBookService bookService)
