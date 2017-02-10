@@ -27,13 +27,7 @@ namespace AtddSampleWeb.Controllers
         public ActionResult Create(BookViewMoel model)
         {
             this._bookService.Add(model);
-            //using (var dbcontext = new BookEntities())
-            //{
-            //    var book = new Book { ISBN = model.ISBN, Name = model.Name };
-            //    dbcontext.Books.Add(book);
 
-            //    dbcontext.SaveChanges();
-            //}
 
             ViewBag.Message = "新增成功";
             return View(model);

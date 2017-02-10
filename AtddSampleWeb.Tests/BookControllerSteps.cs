@@ -18,7 +18,7 @@ namespace AtddSampleWebTests
         [BeforeScenario()]
         public void BeforeScenario()
         {
-            this._bookController = new BookController();
+            this._bookController = new BookController(new BookService());
 
             using (var dbcontext = new NorthwindEntities())
             {
