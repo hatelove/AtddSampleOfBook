@@ -1,8 +1,10 @@
-﻿Feature: BookMaintenance
+﻿@web
+Feature: BookMaintenance
 	In order to maintain books easily
 	As a librarian
 	I want to add, update, query books information
 
+@CleanBooks
 Scenario: Add a book
 	Given go to Book Registering Page
 	And a book for registering

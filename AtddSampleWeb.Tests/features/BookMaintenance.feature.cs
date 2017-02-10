@@ -31,7 +31,8 @@ namespace AtddSampleWebTests.Features
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(null, 0);
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "BookMaintenance", "\tIn order to maintain books easily\r\n\tAs a librarian\r\n\tI want to add, update, quer" +
-                    "y books information", ProgrammingLanguage.CSharp, ((string[])(null)));
+                    "y books information", ProgrammingLanguage.CSharp, new string[] {
+                        "web"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -71,12 +72,15 @@ namespace AtddSampleWebTests.Features
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add a book")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BookMaintenance")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("web")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("CleanBooks")]
         public virtual void AddABook()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add a book", ((string[])(null)));
-#line 6
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add a book", new string[] {
+                        "CleanBooks"});
+#line 8
 this.ScenarioSetup(scenarioInfo);
-#line 7
+#line 9
  testRunner.Given("go to Book Registering Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -85,11 +89,11 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "9789869094481",
                         "玩出好創意"});
-#line 8
+#line 10
  testRunner.And("a book for registering", ((string)(null)), table1, "And ");
-#line 11
+#line 13
  testRunner.When("Add book into library", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 12
+#line 14
  testRunner.Then("added successfully message should be displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

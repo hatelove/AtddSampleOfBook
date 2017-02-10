@@ -11,11 +11,6 @@ namespace AtddSampleWebTests.steps
     {
         private BookRegisterPage _bookRegisterPage;
 
-        public BookMaintenanceSteps()
-        {
-            SeleniumWebDriver.Bootstrap(SeleniumWebDriver.Browser.Chrome);
-        }
-
         [BeforeScenario()]
         public void BeforeScenario()
         {

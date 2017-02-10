@@ -1,9 +1,8 @@
-﻿using System;
-using System.Linq;
-using AtddSampleWeb.Controllers;
+﻿using AtddSampleWeb.Controllers;
 using AtddSampleWeb.Models;
 using AtddSampleWebTests.DataModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -19,22 +18,6 @@ namespace AtddSampleWebTests
         public void BeforeScenario()
         {
             this._bookController = new BookController(new BookService());
-
-            using (var dbcontext = new NorthwindEntities())
-            {
-                dbcontext.Database.ExecuteSqlCommand("TRUNCATE TABLE [Books]");
-                dbcontext.SaveChangesAsync();
-            }
-        }
-
-        [AfterFeature()]
-        public static void AfterFeature()
-        {
-            using (var dbcontext = new NorthwindEntities())
-            {
-                dbcontext.Database.ExecuteSqlCommand("TRUNCATE TABLE [Books]");
-                dbcontext.SaveChangesAsync();
-            }
         }
 
         [Given(@"a book for registering")]
