@@ -20,6 +20,11 @@ namespace AtddSampleWebTests.steps
         [BeforeScenario()]
         public void CleanTable()
         {
+            CleanTableByTag();
+        }
+
+        private static void CleanTableByTag()
+        {
             var tags = ScenarioContext.Current.ScenarioInfo.Tags
                 .Where(x => x.StartsWith("Clean"))
                 .Select(x => x.Replace("Clean", ""));
@@ -38,6 +43,12 @@ namespace AtddSampleWebTests.steps
 
                 dbcontext.SaveChangesAsync();
             }
+        }
+
+        [AfterFeature()]
+        public static void CleanTableAfterFeature()
+        {
+            CleanTableByTag();
         }
     }
 }
