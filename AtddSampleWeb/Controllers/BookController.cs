@@ -1,21 +1,19 @@
 ﻿using AtddSampleWeb.Models;
-using AtddSampleWeb.Models.DataModels;
 using System.Web.Mvc;
 
 namespace AtddSampleWeb.Controllers
 {
     public class BookController : Controller
     {
-        private IBookService bookServiceStub;
+        private IBookService _bookService;
 
         public BookController()
         {
-            
         }
 
-        public BookController(IBookService bookServiceStub)
+        public BookController(IBookService bookService)
         {
-            this.bookServiceStub = bookServiceStub;
+            this._bookService = bookService;
         }
 
         // GET: Book
@@ -28,13 +26,14 @@ namespace AtddSampleWeb.Controllers
         [HttpPost]
         public ActionResult Create(BookViewMoel model)
         {
-            using (var dbcontext = new BookEntities())
-            {
-                var book = new Book { ISBN = model.ISBN, Name = model.Name };
-                dbcontext.Books.Add(book);
+            this._bookService.Add(model);
+            //using (var dbcontext = new BookEntities())
+            //{
+            //    var book = new Book { ISBN = model.ISBN, Name = model.Name };
+            //    dbcontext.Books.Add(book);
 
-                dbcontext.SaveChanges();
-            }
+            //    dbcontext.SaveChanges();
+            //}
 
             ViewBag.Message = "新增成功";
             return View(model);
