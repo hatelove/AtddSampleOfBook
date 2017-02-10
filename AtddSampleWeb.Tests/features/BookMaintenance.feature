@@ -13,6 +13,7 @@ Scenario: Add a book
 	When Add book into library
 	Then added successfully message should be displayed
 
+@CleanBooks
 Scenario: Query books
 	Given go to Book Query Page
 	And Query Condition: book name is "玩出好創意"	

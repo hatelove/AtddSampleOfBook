@@ -103,14 +103,16 @@ this.ScenarioSetup(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Query books")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BookMaintenance")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("web")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("CleanBooks")]
         public virtual void QueryBooks()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query books", ((string[])(null)));
-#line 16
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query books", new string[] {
+                        "CleanBooks"});
 #line 17
- testRunner.Given("go to Book Query Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 18
+ testRunner.Given("go to Book Query Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 19
  testRunner.And("Query Condition: book name is \"玩出好創意\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -122,9 +124,9 @@ this.ScenarioSetup(scenarioInfo);
             table2.AddRow(new string[] {
                         "9789869094481",
                         "玩出好創意"});
-#line 19
+#line 20
  testRunner.And("Book table existed books", ((string)(null)), table2, "And ");
-#line 23
+#line 24
  testRunner.When("Query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -133,7 +135,7 @@ this.ScenarioSetup(scenarioInfo);
             table3.AddRow(new string[] {
                         "9789869094481",
                         "玩出好創意"});
-#line 24
+#line 25
  testRunner.Then("it should display book records", ((string)(null)), table3, "Then ");
 #line hidden
             this.ScenarioCleanup();

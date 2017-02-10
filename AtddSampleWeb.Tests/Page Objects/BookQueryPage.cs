@@ -1,7 +1,6 @@
-﻿using System;
+﻿using FluentAutomation;
 using System.Collections.Generic;
 using System.Linq;
-using FluentAutomation;
 
 namespace AtddSampleWebTests
 {
@@ -9,7 +8,7 @@ namespace AtddSampleWebTests
     {
         public BookQueryPage(FluentTest test) : base(test)
         {
-            this.Url = $"{PageContext.Domain}/books/query";
+            this.Url = $"{PageContext.Domain}/book/query";
         }
 
         public void Query(BookQueryCondition condition)
@@ -20,10 +19,12 @@ namespace AtddSampleWebTests
 
         public void ShouldDisplay(IEnumerable<BookQueryResult> books)
         {
-            for (int i = 0; i < books.Count(); i++)
+            for (int i = 1; i < books.Count(); i++)
             {
                 var book = books.ElementAt(i);
-                I.Assert.Text(book.Name).In($"td .name:nth-child({i + 1})");
+
+                var cssSelector = $".table tbody>tr:nth-child({i + 1}) td.name";
+                I.Assert.Text(book.Name).In(cssSelector);
             }
         }
     }
